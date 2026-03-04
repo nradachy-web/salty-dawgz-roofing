@@ -221,6 +221,13 @@ img { max-width: 100%; height: auto; }
   flex-shrink: 0;
 }
 
+.header__logo-img {
+  width: 44px;
+  height: 44px;
+  object-fit: contain;
+  border-radius: 6px;
+}
+
 .header__name {
   font-family: 'Archivo Black', 'Inter', sans-serif;
   font-size: 17px;
@@ -1027,6 +1034,13 @@ section {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+.footer__logo-img {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  border-radius: 6px;
 }
 
 .footer__name {
