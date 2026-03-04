@@ -368,10 +368,14 @@ img { max-width: 100%; height: auto; }
 .hero__overlay {
   position: absolute;
   inset: 0;
-  background:
-    radial-gradient(ellipse at 80% 20%, rgba(230,57,70,0.12) 0%, transparent 60%),
-    radial-gradient(ellipse at 20% 80%, rgba(29,53,87,0.3) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(15,23,42,0.88) 0%, rgba(29,53,87,0.75) 100%);
   pointer-events: none;
+}
+
+.hero[style*="background-image"] {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .hero__content {
@@ -640,6 +644,21 @@ section {
 .cta-banner {
   background: var(--brand);
   padding: 48px 0;
+  position: relative;
+  background-size: cover;
+  background-position: center;
+}
+
+.cta-banner[style*="background-image"]::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(230,57,70,0.85);
+}
+
+.cta-banner[style*="background-image"] .container {
+  position: relative;
+  z-index: 1;
 }
 
 .cta-banner__inner {
@@ -1280,6 +1299,95 @@ section {
 }
 
 /* =============================================
+   IMAGE BANNER (About Section)
+   ============================================= */
+.img-banner {
+  padding: 48px 0;
+  background: var(--white);
+}
+
+.img-banner__inner {
+  display: grid;
+  gap: 28px;
+  align-items: center;
+}
+
+.img-banner__img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+  object-fit: cover;
+  aspect-ratio: 16/10;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
+.img-banner__text h2 {
+  font-family: 'Archivo Black', sans-serif;
+  font-size: 26px;
+  color: var(--gray-900);
+  margin-bottom: 12px;
+  line-height: 1.15;
+}
+
+.img-banner__text p {
+  font-size: 15px;
+  color: var(--gray-500);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 640px) {
+  .img-banner__inner {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+}
+
+@media (min-width: 960px) {
+  .img-banner {
+    padding: 72px 0;
+  }
+  .img-banner__text h2 {
+    font-size: 32px;
+  }
+}
+
+/* =============================================
+   SHOWCASE GRID
+   ============================================= */
+.showcase {
+  padding: 0;
+  background: var(--gray-900);
+}
+
+.showcase .container {
+  max-width: 100%;
+  padding: 0;
+}
+
+.showcase__grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2px;
+}
+
+.showcase__grid img {
+  width: 100%;
+  aspect-ratio: 16/10;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 640px) {
+  .showcase__grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .showcase__grid img {
+    aspect-ratio: 4/3;
+  }
+}
+
+/* =============================================
    SERVICE PAGES
    ============================================= */
 
@@ -1291,11 +1399,16 @@ section {
   overflow: hidden;
 }
 
+.svc-hero[style*="background-image"] {
+  background-size: cover;
+  background-position: center;
+}
+
 .svc-hero::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse at 80% 20%, rgba(230,57,70,0.1) 0%, transparent 60%);
+  background: linear-gradient(135deg, rgba(15,23,42,0.88) 0%, rgba(29,53,87,0.78) 100%);
   pointer-events: none;
 }
 
@@ -1445,6 +1558,21 @@ section {
   color: var(--green);
   font-weight: 700;
   font-size: 15px;
+}
+
+/* Service Inline Image */
+.svc-img {
+  margin: 28px 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.svc-img img {
+  width: 100%;
+  display: block;
+  aspect-ratio: 16/9;
+  object-fit: cover;
 }
 
 /* Service Sidebar */
